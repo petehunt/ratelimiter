@@ -66,7 +66,7 @@ The endpoint takes the following parameters:
 
 ## What do we do with the data?
 
-We salt and hash the `entities` you send us (in case you forgot to - thought it's still better if you do it). And we delete them when it's no longer needed.
+We salt and hash the `entities` you send us (it's best if you do this client-side too, which is done automatically for you if you use the npm package). All data is deleted when it expires.
 
 ## Where is the data stored?
 
