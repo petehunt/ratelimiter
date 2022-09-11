@@ -6,7 +6,15 @@
 
 It's offered as both an MIT-licensed open-source project and a free hosted service that does not require any registration. It costs me money to run the hosted service, so if you find it valuable, I encourage you to [throw me a few bucks](https://ko-fi.com/T6T5EYYCS).
 
-## Getting started
+## What is this good for?
+
+Rate limiting is a very useful technique to prevent abuse and manage costs. For example, you can:
+
+- Limit the number of requests per user on an expensive endpoint to control costs.
+- Limit the number of login attempts per IP to prevent account compromise.
+- Limit the number of messages a user can send per hour to prevent spam.
+
+Almost every real-world application could benefit from rate limiting, but it requires setting up custom infrastructure (such as Redis) which can be a hassle. [ratelimiter.io](https://ratelimiter.io/) is a completely free hosted rate limiting service that you can use without setting anything up, and all of the code is open-source if you want to run it yourself.
 
 ### Node.js
 
