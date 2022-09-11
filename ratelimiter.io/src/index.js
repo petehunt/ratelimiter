@@ -20,7 +20,7 @@ function invariant(cond, message) {
  * Call the ratelimiter.io service and return a result. Ensures all personal data is salted and hashed before being sent. If a salt
  * is not provided, it will be generated based on the appId.
  * @param {{quota: number; timeWindowSeconds: number; appId: string; eventName: string; entities: string[]; baseUrl?: string; salt?: string}} options Options to pass to the service
- * @returns {{ok: boolean; entities: Record<string, {total: number; remaining: number; reset: number}>}} Response from the API
+ * @returns {Promise<{ok: boolean; entities: Record<string, {total: number; remaining: number; reset: number}>}>} Response from the API
  */
 async function callRatelimiter(options) {
   invariant(
@@ -81,6 +81,7 @@ async function callRatelimiter(options) {
 /**
  * Wrapper around callRatelimiter() that throws a RateLimitedError when the rate limit is hit
  * @param {{quota: number; timeWindowSeconds: number; appId: string; eventName: string; entities: string[]; baseUrl?: string; salt?: string}} options Options to pass to the service
+ * @returns {Promise<void>}
  */
 async function throwIfRateLimited(options) {
   const { ok } = await callRatelimiter(options);
